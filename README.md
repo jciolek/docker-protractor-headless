@@ -13,7 +13,7 @@ To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com
 # Usage
 
 ```
-docker run -it --net=host -v /dev/shm:/dev/shm -v $(pwd):/protractor webnicer/protractor-headless [protractor options]
+docker run -it --rm --net=host -v /dev/shm:/dev/shm -v $(pwd):/protractor webnicer/protractor-headless [protractor options]
 ```
 
 This will run protractor in your current directory, so you should run it in your tests root directory. It is useful to create a script, for example /usr/local/bin/protractor.sh such as this:
@@ -21,7 +21,7 @@ This will run protractor in your current directory, so you should run it in your
 ```
 #!/bin/bash
 
-docker run -it --net=host -v /dev/shm:/dev/shm -v $(pwd):/protractor webnicer/protractor-headless $@
+docker run -it --rm --net=host -v /dev/shm:/dev/shm -v $(pwd):/protractor webnicer/protractor-headless $@
 ```
 
 The script will allow you to run dockerised protractor like so:
