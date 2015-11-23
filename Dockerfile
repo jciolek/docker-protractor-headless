@@ -1,4 +1,4 @@
-FROM node
+FROM node:slim
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 RUN npm install -g protractor mocha jasmine && \
