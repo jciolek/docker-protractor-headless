@@ -12,5 +12,8 @@ RUN npm install -g protractor mocha jasmine && \
     rm google-chrome-stable_current_amd64.deb && \
     mkdir /protractor
 ADD protractor.sh /protractor.sh
+# Fix for the issue with Selenium, as described here:
+# https://github.com/SeleniumHQ/docker-selenium/issues/87
+ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 WORKDIR /protractor
 ENTRYPOINT ["/protractor.sh"]
