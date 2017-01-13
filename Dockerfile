@@ -15,5 +15,6 @@ ADD protractor.sh /protractor.sh
 # Fix for the issue with Selenium, as described here:
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
+ENV SCREEN_RES=1280x1024x24
 WORKDIR /protractor
 ENTRYPOINT ["/protractor.sh"]
