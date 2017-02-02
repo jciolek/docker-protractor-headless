@@ -1,6 +1,6 @@
 # Docker image of Protractor with headless Chrome
 
-Protractor end to end testing for AngularJS - dockerised with headless real Chrome.
+Protractor end to end testing for AngularJS - dockerised with headless real Chrome. This image is meant as a drop-in replacement for Protractor, so you can use it virtually in the same way you would use Protractor installed directly on your machine.
 
 ## Why headless Chrome?
 
@@ -10,13 +10,26 @@ PhantomJS is [discouraged by Protractor creators](https://angular.github.io/prot
 
 To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com/2015/01/09/headless-browser-testing-xvfb/). Therefore you have every confidence that the tests are run on the real thing.
 
+## What is included?
+
+The image in the latest version contains the following packages in their respective versions:
+
+* Chrome - 54
+* Protractor - 4.0.14
+* Jasmine - 2.5.3
+* Mocha - 3.2.0
+* Node.js - 6.9.4
+* Chromedriver - 2.27
+
+The packages are pinned to those versions so that and they should work together without issues. Pulling in the latest version of Chrome during image build proved unsuccessful at times, because Chromedriver is usually lagging behind with support.
+
 # Usage
 
 ```
 docker run -it --privileged --rm --net=host -v /dev/shm:/dev/shm -v $(pwd):/protractor webnicer/protractor-headless [protractor options]
 ```
 
-This will run protractor in your current directory, so you should run it in your tests root directory. It is useful to create a script, for example /usr/local/bin/protractor.sh such as this:
+This will run protractor in your current directory, so you should run it in your tests root directory. It is useful to create a script, for example /usr/local/bin/protractor-headless such as this:
 
 ```
 #!/bin/bash
@@ -27,7 +40,7 @@ docker run -it --privileged --rm --net=host -v /dev/shm:/dev/shm -v $(pwd):/prot
 The script will allow you to run dockerised protractor like so:
 
 ```
-protractor.sh [protractor options]
+protractor-headless [protractor options]
 ```
 
 
