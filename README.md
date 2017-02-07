@@ -1,6 +1,6 @@
 # Docker image of Protractor with headless Chrome
 
-[![Build Status](https://travis-ci.org/jciolek/docker-protractor-headless.svg?branch=master)](https://travis-ci.org/jciolek/docker-protractor-headless)
+[![Build Status](https://travis-ci.org/jciolek/docker-protractor-headless.svg?branch=chrome54)](https://travis-ci.org/jciolek/docker-protractor-headless)
 
 Protractor end to end testing for AngularJS - dockerised with headless real Chrome. This image is meant as a drop-in replacement for Protractor, so you can use it virtually in the same way you would use Protractor installed directly on your machine.
 
