@@ -1,5 +1,7 @@
 # Docker image of Protractor with headless Chrome
 
+[![Build Status](https://travis-ci.org/jciolek/docker-protractor-headless.svg?branch=master)](https://travis-ci.org/jciolek/docker-protractor-headless)
+
 Protractor end to end testing for AngularJS - dockerised with headless real Chrome. This image is meant as a drop-in replacement for Protractor, so you can use it virtually in the same way you would use Protractor installed directly on your machine.
 
 ## Why headless Chrome?
@@ -69,3 +71,9 @@ The [`--privileged`](https://docs.docker.com/engine/reference/run/#runtime-privi
 ## Why `--net=host`?
 
 This options is required **only** if the dockerised Protractor is run against localhost on the host. Imagine this sscenario: you run an http test server on your local machine, let's say on port 8000. You type in your browser `http://localhost:8000` and everything goes smoothly. Then you want to run the dockerised Protractor against the same localhost:8000. If you don't use `--net=host` the container will receive the bridged interface and its own loopback and so the `localhost` within the container will refer to the container itself. Using `--net=host` you allow the container to share host's network stack and properly refer to the host when Protractor is run against `localhost`.
+
+# Tests
+The tests are run on Travis and include the following:
+
+* image build
+* run of protractor-headless against angular.js v1.6.1
