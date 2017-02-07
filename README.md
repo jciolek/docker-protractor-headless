@@ -16,7 +16,7 @@ To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com
 
 The image in the latest version contains the following packages in their respective versions:
 
-* Chrome - 54
+* Chrome - 55
 * Protractor - 4.0.14
 * Jasmine - 2.5.3
 * Mocha - 3.2.0
