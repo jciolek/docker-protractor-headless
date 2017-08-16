@@ -12,11 +12,17 @@ PhantomJS is [discouraged by Protractor creators](https://angular.github.io/prot
 
 To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com/2015/01/09/headless-browser-testing-xvfb/). Therefore you have every confidence that the tests are run on the real thing.
 
-## What is included?
+## Supported tags
+
+* chrome56, latest
+* chrome55
+* chrome54
+
+## What is included in the latest?
 
 The image in the latest version contains the following packages in their respective versions:
 
-* Chrome - 55
+* Chrome - 56
 * Protractor - 4.0.14
 * Jasmine - 2.5.3
 * Mocha - 3.2.0
