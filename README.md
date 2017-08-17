@@ -14,7 +14,8 @@ To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com
 
 ## Supported tags
 
-* chrome56, latest
+* chrome57, latest
+* chrome56
 * chrome55
 * chrome54
 
@@ -22,12 +23,12 @@ To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com
 
 The image in the latest version contains the following packages in their respective versions:
 
-* Chrome - 56
+* Chrome - 57
 * Protractor - 4.0.14
-* Jasmine - 2.5.3
-* Mocha - 3.2.0
+* Jasmine - 2.7.0
+* Mocha - 3.4.2
 * Node.js - 6.9.4
-* Chromedriver - 2.27
+* Chromedriver - 2.29
 
 The packages are pinned to those versions so that and they should work together without issues. Pulling in the latest version of Chrome during image build proved unsuccessful at times, because Chromedriver is usually lagging behind with support.
 
@@ -82,4 +83,4 @@ This options is required **only** if the dockerised Protractor is run against lo
 The tests are run on Travis and include the following:
 
 * image build
-* run of protractor-headless against angular.js v1.6.1
+* run of protractor-headless against angular.js v1.6.4
