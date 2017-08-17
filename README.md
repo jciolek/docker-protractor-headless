@@ -25,12 +25,14 @@ The image in the latest version contains the following packages in their respect
 
 * Chrome - 57
 * Protractor - 4.0.14
-* Jasmine - 2.7.0
-* Mocha - 3.4.2
 * Node.js - 6.9.4
 * Chromedriver - 2.29
 
 The packages are pinned to those versions so that and they should work together without issues. Pulling in the latest version of Chrome during image build proved unsuccessful at times, because Chromedriver is usually lagging behind with support.
+
+**IMPORTANT CHANGE**
+
+Starting with Chrome 57 Jasmine and Mocha are no longer included, assuming the packages are installed in the project's directory. Therefore the image uses `node_modules` subdirectory from the `/protractor` directory mounted when running the image (see Usage below).
 
 # Usage
 
@@ -52,6 +54,7 @@ The script will allow you to run dockerised protractor like so:
 protractor-headless [protractor options]
 ```
 
+The image adds `/protractor/node_modules` directory to its `NODE_PATH` environmental variable, so that it can use Jasmine, Mocha or whatever else the project uses from the project's own node modules. Therefore Mocha and Jasmine are no longer included in the image.
 
 ## Setting up custom screen resolution
 
@@ -83,4 +86,4 @@ This options is required **only** if the dockerised Protractor is run against lo
 The tests are run on Travis and include the following:
 
 * image build
-* run of protractor-headless against angular.js v1.6.4
+* run of protractor-headless against angular.js v1.6.1

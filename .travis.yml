@@ -7,12 +7,12 @@ node_js:
 services: docker
 
 before_install:
-  - npm install -g grunt yarn@0.21.3
+  - npm install -g grunt yarn@0.17.9
 
 install:
   - git clone https://github.com/angular/angular.js.git ~/angular.js
   - cd ~/angular.js
-  - git checkout v1.6.4
+  - git checkout v1.6.1
   - yarn install
   - grunt
   - grunt connect &
