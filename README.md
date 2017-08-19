@@ -14,22 +14,27 @@ To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com
 
 ## Supported tags
 
-* chrome56, latest
+* chrome58, latest
+* chrome56
 * chrome55
 * chrome54
+
+Please note that chrome57 is not available, as it does not work reliably with Ptoractor. There were intermittent test failures, usually around selecting elements `by.binding`.
 
 ## What is included in the latest?
 
 The image in the latest version contains the following packages in their respective versions:
 
-* Chrome - 56
+* Chrome - 58
 * Protractor - 4.0.14
-* Jasmine - 2.5.3
-* Mocha - 3.2.0
 * Node.js - 6.9.4
-* Chromedriver - 2.27
+* Chromedriver - 2.31
 
 The packages are pinned to those versions so that and they should work together without issues. Pulling in the latest version of Chrome during image build proved unsuccessful at times, because Chromedriver is usually lagging behind with support.
+
+**IMPORTANT CHANGE**
+
+Starting with Chrome 58 Jasmine and Mocha are no longer included, assuming the packages are installed in the project's directory. Therefore the image uses `node_modules` subdirectory from the `/protractor` directory mounted when running the image (see Usage below).
 
 # Usage
 
@@ -51,6 +56,7 @@ The script will allow you to run dockerised protractor like so:
 protractor-headless [protractor options]
 ```
 
+The image adds `/protractor/node_modules` directory to its `NODE_PATH` environmental variable, so that it can use Jasmine, Mocha or whatever else the project uses from the project's own node modules. Therefore Mocha and Jasmine are no longer included in the image.
 
 ## Setting up custom screen resolution
 
