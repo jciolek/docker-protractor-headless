@@ -14,6 +14,7 @@ RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
     dpkg --unpack ${CHROME_PACKAGE} && \
     apt-get install -f -y && \
     apt-get clean && \
+    rm -rf /var/lib/apt/lists/* \
     rm ${CHROME_PACKAGE} && \
     mkdir /protractor
 COPY protractor.sh /
