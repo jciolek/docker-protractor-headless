@@ -64,7 +64,7 @@ The image adds `/protractor/node_modules` directory to its `NODE_PATH` environme
 Starting with version [1.10](https://docs.docker.com/release-notes/docker-engine/#1100-2016-02-04), Docker supports the `--shm-size` flag, which renders the cumbersome mapping of `/dev/shm` obsolete. Therefore, in Docker 1.10+ you could run the image as follows:
 
 ```
-docker run -it --privileged --rm --net=host --shm-size 2G -v $(pwd):/protractor webnicer/protractor-headless [protractor options]
+docker run -it --privileged --rm --net=host --shm-size 2g -v $(pwd):/protractor webnicer/protractor-headless [protractor options]
 ```
 
 ## Setting up custom screen resolution
@@ -79,7 +79,7 @@ docker run -it --privileged --rm --net=host -e SCREEN_RES=1920x1080x24 -v /dev/s
 
 Docker has hardcoded value of 64MB for `/dev/shm`. Because of that you can encounter an error [session deleted becasue of page crash](https://bugs.chromium.org/p/chromedriver/issues/detail?id=1097) on memory intensive pages.
 
-Up until Docker 1.10 the easiest way to mitigate that problem was to share `/dev/shm` with the host. Starting with Docker 1.10, we can use the option `--shm-size` to set the size of the shared memory to any arbitrary value. I recommend 2G, however you may want to experiment with this value.
+Up until Docker 1.10 the easiest way to mitigate that problem was to share `/dev/shm` with the host. Starting with Docker 1.10, we can use the option `--shm-size` to set the size of the shared memory to any arbitrary value. I recommend `2g`, however you may want to experiment with this value.
 
 
 ## Why `--privileged`?
