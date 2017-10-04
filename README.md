@@ -14,7 +14,8 @@ To be perfectly honest - it is a [real chrome running on xvfb](http://tobyho.com
 
 ## Supported tags
 
-* chrome58, latest
+* chrome59, latest
+* chrome58
 * chrome56
 * chrome55
 * chrome54
@@ -25,10 +26,10 @@ Please note that chrome57 is not available, as it does not work reliably with Pt
 
 The image in the latest version contains the following packages in their respective versions:
 
-* Chrome - 58
+* Chrome - 59
 * Protractor - 4.0.14
 * Node.js - 6.9.4
-* Chromedriver - 2.31
+* Chromedriver - 2.32
 
 The packages are pinned to those versions so that and they should work together without issues. Pulling in the latest version of Chrome during image build proved unsuccessful at times, because Chromedriver is usually lagging behind with support.
 

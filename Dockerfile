@@ -2,9 +2,9 @@ FROM node:6.9.4-slim
 MAINTAINER j.ciolek@webnicer.com
 WORKDIR /tmp
 COPY webdriver-versions.js ./
-ENV CHROME_PACKAGE="google-chrome-stable_58.0.3029.96-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
+ENV CHROME_PACKAGE="google-chrome-stable_59.0.3071.115-1_amd64.deb" NODE_PATH=/usr/local/lib/node_modules:/protractor/node_modules
 RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
-    node ./webdriver-versions.js --chromedriver 2.31 && \
+    node ./webdriver-versions.js --chromedriver 2.32 && \
     webdriver-manager update && \
     echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
     apt-get update && \
@@ -14,6 +14,7 @@ RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
     dpkg --unpack ${CHROME_PACKAGE} && \
     apt-get install -f -y && \
     apt-get clean && \
+    rm -rf /var/lib/apt/lists/* \
     rm ${CHROME_PACKAGE} && \
     mkdir /protractor
 COPY protractor.sh /
